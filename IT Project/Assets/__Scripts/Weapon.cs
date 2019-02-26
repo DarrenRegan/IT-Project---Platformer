@@ -11,6 +11,8 @@ public class Weapon : MonoBehaviour{
 
     //Prefabs
     public Transform BulletTrailPrefab;
+    public Transform shootEffectPrefab;
+
     float effectSpawnRate = 10;
     float timeToSpawnEffect = 0;
 
@@ -66,8 +68,16 @@ public class Weapon : MonoBehaviour{
     }
 
     //Shooting effect
+    //Creates instance of object prefabs with position and rotation
     void Effect(){
         Instantiate(BulletTrailPrefab, firePoint.position, firePoint.rotation);
+       Transform clone = (Transform)Instantiate(shootEffectPrefab, firePoint.position, firePoint.rotation); //(Transform) casts instantiate as a transform object
+       clone.parent = firePoint;
+
+       float size = Random.Range(0.5f, 0.9f);
+
+       clone.localScale = new Vector3(size, size, size); // new Vector3(x,y,z)
+       Destroy(clone, 0.05f); //Destroys object after 0.05
     }
 
 
