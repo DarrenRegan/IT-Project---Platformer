@@ -1537,6 +1537,8 @@ MonoBehaviour:
     m_Bits: 51
   BulletTrailPrefab: {fileID: 3430222139269987555, guid: 24985fb7c1e6a3146ad4f8d3eac32352,
     type: 3}
+  shootEffectPrefab: {fileID: 1614487331, guid: d46ffba82ca986440a4e78114cc55005,
+    type: 3}
 --- !u!1 &1578997059
 GameObject:
   m_ObjectHideFlags: 0

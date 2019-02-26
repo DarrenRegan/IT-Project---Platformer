@@ -71,13 +71,13 @@ public class Weapon : MonoBehaviour{
     //Creates instance of object prefabs with position and rotation
     void Effect(){
         Instantiate(BulletTrailPrefab, firePoint.position, firePoint.rotation);
-       Transform clone = (Transform)Instantiate(shootEffectPrefab, firePoint.position, firePoint.rotation); //(Transform) casts instantiate as a transform object
+       Transform clone = Instantiate(shootEffectPrefab, firePoint.position, firePoint.rotation) as Transform; //(Transform) casts instantiate as a transform object
        clone.parent = firePoint;
 
-       float size = Random.Range(0.5f, 0.9f);
+       float size = Random.Range (0.6f, 0.9f);
 
-       clone.localScale = new Vector3(size, size, size); // new Vector3(x,y,z)
-       Destroy(clone, 0.05f); //Destroys object after 0.05
+       clone.localScale = new Vector3 (size, size, size); // new Vector3(x,y,z)
+       Destroy(clone.gameObject, 0.05f); //Destroys object after 0.05f
     }
 
 
