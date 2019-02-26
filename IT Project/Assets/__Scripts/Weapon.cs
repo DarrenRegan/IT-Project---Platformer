@@ -11,7 +11,8 @@ public class Weapon : MonoBehaviour{
 
     //Prefabs
     public Transform BulletTrailPrefab;
-
+    float effectSpawnRate = 10;
+    float timeToSpawnEffect = 0;
 
     float timeToFire = 0;
     Transform firePoint; //Stores firePoint
@@ -50,8 +51,13 @@ public class Weapon : MonoBehaviour{
         Vector2 mousePosition = new Vector2(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y);
         Vector2 firePointPosition = new Vector2(firePoint.position.x, firePoint.position.y); //Stores position of shooting position
         RaycastHit2D hit = Physics2D.Raycast(firePointPosition, mousePosition - firePointPosition, 100, whatToHit); //mousePos - firePointPos finds the point of fire
-        Effect();
 
+        if(Time.time >= timeToSpawnEffect){
+            Effect();
+            timeToSpawnEffect = Time.time + 1 / effectSpawnRate;
+        }
+
+        //Turn on Gizmos to see Drawn Line
         Debug.DrawLine(firePointPosition, (mousePosition - firePointPosition) * 100, Color.red); //Makes line very long
         if(hit.collider != null){
             Debug.DrawLine(firePointPosition, hit.point, Color.yellow);
