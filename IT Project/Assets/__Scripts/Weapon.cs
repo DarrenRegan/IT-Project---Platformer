@@ -6,7 +6,7 @@ public class Weapon : MonoBehaviour{
 
     //Weapon Variables
     public float fireRate = 0; //Public to edit it - Hold down button to fire and single burst shooting
-    public float dmg = 10; //Damage of shooting
+    public int dmg = 10; //Damage of shooting
     public LayerMask whatToHit; //Tell unity what we want to hit --- List of all layers, can use unity to decide what layers you dont want to hit
 
     //Prefabs
@@ -63,7 +63,11 @@ public class Weapon : MonoBehaviour{
         Debug.DrawLine(firePointPosition, (mousePosition - firePointPosition) * 100, Color.red); //Makes line very long
         if(hit.collider != null){
             Debug.DrawLine(firePointPosition, hit.point, Color.yellow);
-            Debug.Log("Hit: " + hit.collider.name + "  with " + dmg + "damage!");
+            Enemy enemy = hit.collider.GetComponent<Enemy>();
+            if(enemy != null){
+                enemy.DamageEnemy(dmg);
+                Debug.Log("Hit: " + hit.collider.name + "  with " + dmg + "damage!");
+            }
         }
     }
 
