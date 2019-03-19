@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Player : MonoBehaviour {
 
-    public class PlayerStats    {
+    [System.Serializable]
+    public class PlayerStats {
         public int Health = 100;
     }
 
