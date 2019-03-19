@@ -5,14 +5,14 @@ using UnityEngine;
 public class GameMaster : MonoBehaviour{
 
     //Variables
-    public int spawnDelay;
+    public int spawnDelay = 2;
 
     //Creating a singleton so theres only access to a single instance of GM at one time
     public static GameMaster gm;
 
     //Transform for player respawning
     public Transform playerPrefab;
-    public Transform spawnPoint = 2;
+    public Transform spawnPoint;
     
 
     void Start(){
@@ -34,6 +34,7 @@ public class GameMaster : MonoBehaviour{
     //Pass in Player type from class player
     public static void KillPlayer (Player player){
         Destroy(player.gameObject); //Kills player
+        gm.StartCoroutine(gm.RespawnPlayer());
     }
 
 
