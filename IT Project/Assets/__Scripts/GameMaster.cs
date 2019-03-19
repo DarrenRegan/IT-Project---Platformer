@@ -21,8 +21,10 @@ public class GameMaster : MonoBehaviour{
             gm = GameObject.FindGameObjectWithTag("GM").GetComponent<GameMaster>();
         }
     }
-
-    public void RespawnPlayer(){
+    //https://docs.microsoft.com/en-us/dotnet/api/system.collections.ienumerator?redirectedfrom=MSDN&view=netframework-4.7.2
+    //Coroutines & IEnumerator - Stops a function from executing until a condition is met, and then continues where it left off
+    //So IEnumerator will use WaitforSeconds(spawnDelay) as its condition when its met it will spawn the player
+    public IEnumerator RespawnPlayer(){
         //Maybe Add Effects or small sound effect
         yield return new WaitForSeconds(spawnDelay); //Adds a small delay for respawning
         Instantiate(playerPrefab, spawnPoint.position, spawnPoint.rotation);
