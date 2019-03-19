@@ -69,6 +69,7 @@ public class Weapon : MonoBehaviour{
 
     //Shooting effect
     //Creates instance of object prefabs with position and rotation
+    //Instantiate clones the object and returns a clone - Parameters (Original, position, rotation, parent, instanceiateWorldSpace)
     void Effect(){
         Instantiate(BulletTrailPrefab, firePoint.position, firePoint.rotation);
        Transform clone = Instantiate(shootEffectPrefab, firePoint.position, firePoint.rotation) as Transform; //(Transform) casts instantiate as a transform object
