@@ -31,13 +31,18 @@ public class enemyAI : MonoBehaviour{
     public float nextWayPointDistance = 3;
     //Waypoint Moving towards
     private int currentWaypoint = 0;
+    private bool searchingForPlayer = false;
 
     void Start(){
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
 
         if (target == null){
-            Debug.LogError("No Player Found");
+           // Debug.LogError("No Player Found");
+           if(!searchingForPlayer){
+               searchingForPlayer = true;
+               StartCoroutine(SearchForPlayer());
+           }
             return;
         }
 
@@ -49,10 +54,27 @@ public class enemyAI : MonoBehaviour{
 
     }
 
+    IEnumerator SearchForPlayer (){
+        GameObject searchResult = GameObject.FindGameObjectWithTag("Player");
+        if(searchResult == null){
+            yield return new WaitForSeconds(0.5f);
+            StartCoroutine(SearchForPlayer());
+        } else {
+            target = searchResult.transform;
+            searchingForPlayer = false;
+            StartCoroutine(UpdatePath());
+           yield return false;
+        }
+    }
+
     IEnumerator UpdatePath(){
-        if (target == null){
-            //add player search
-            yield return false;
+         if (target == null){
+           // Debug.LogError("No Player Found");
+           if(!searchingForPlayer){
+               searchingForPlayer = true;
+               StartCoroutine(SearchForPlayer());
+           }
+           yield return false;
         }
         
         //Starts path to target pos and return result to OnPathComplete method
@@ -74,7 +96,11 @@ public class enemyAI : MonoBehaviour{
     void FixedUpdate () {
         
         if (target == null){
-            //add player search
+           // Debug.LogError("No Player Found");
+           if(!searchingForPlayer){
+               searchingForPlayer = true;
+               StartCoroutine(SearchForPlayer());
+           }
             return;
         }
 
