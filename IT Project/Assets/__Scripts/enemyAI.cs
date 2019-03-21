@@ -80,7 +80,7 @@ public class enemyAI : MonoBehaviour{
         //Starts path to target pos and return result to OnPathComplete method
         seeker.StartPath(transform.position, target.position, OnPathComplete);
 
-        yield return new WaitForSeconds ( 1f/updateRate);
+        yield return new WaitForSeconds (1f/updateRate);
         StartCoroutine (UpdatePath());
     }
 
