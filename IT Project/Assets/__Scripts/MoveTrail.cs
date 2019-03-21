@@ -8,7 +8,7 @@ public class MoveTrail : MonoBehaviour
 
     // Update is called once per frame
     void Update() {
-        //Move an object over time instead of using a rigidBody - Time.deltaTime removes the effect of fps
+        //Move an object over time - Time.deltaTime removes the effect of fps
         transform.Translate(Vector3.right * Time.deltaTime * moveSpeed); 
         Destroy(this.gameObject, 1);
     }
