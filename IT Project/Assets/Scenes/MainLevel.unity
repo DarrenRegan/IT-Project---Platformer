@@ -2544,12 +2544,12 @@ PrefabInstance:
     - target: {fileID: 3472370831321907059, guid: 6d768dcc12bce274298505d7b007408c,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.51
+      value: -7.2285
       objectReference: {fileID: 0}
     - target: {fileID: 3472370831321907059, guid: 6d768dcc12bce274298505d7b007408c,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 7.32
+      value: 6.9925
       objectReference: {fileID: 0}
     - target: {fileID: 3472370831321907059, guid: 6d768dcc12bce274298505d7b007408c,
         type: 3}
@@ -2596,6 +2596,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3472370831321907059, guid: 6d768dcc12bce274298505d7b007408c,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3472370831321907059, guid: 6d768dcc12bce274298505d7b007408c,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 3472370831321907056, guid: 6d768dcc12bce274298505d7b007408c,
         type: 3}
       propertyPath: target
@@ -2616,5 +2626,31 @@ PrefabInstance:
       propertyPath: m_Material
       value: 
       objectReference: {fileID: 6200000, guid: 551b84ee8a809e64484c8bb42b1c31eb, type: 2}
+    - target: {fileID: 3472370831321907071, guid: 6d768dcc12bce274298505d7b007408c,
+        type: 3}
+      propertyPath: m_Radius
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3472370831321907058, guid: 6d768dcc12bce274298505d7b007408c,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 9adacb15a7c4ad64bbc69857c2968377,
+        type: 3}
+    - target: {fileID: 3472370831321907058, guid: 6d768dcc12bce274298505d7b007408c,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3472370831321907058, guid: 6d768dcc12bce274298505d7b007408c,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.41
+      objectReference: {fileID: 0}
+    - target: {fileID: 3472370831321907058, guid: 6d768dcc12bce274298505d7b007408c,
+        type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6d768dcc12bce274298505d7b007408c, type: 3}
