@@ -54,10 +54,6 @@ public class Weapon : MonoBehaviour{
         Vector2 firePointPosition = new Vector2(firePoint.position.x, firePoint.position.y); //Stores position of shooting position
         RaycastHit2D hit = Physics2D.Raycast(firePointPosition, mousePosition - firePointPosition, 100, whatToHit); //mousePos - firePointPos finds the point of fire
 
-        if(Time.time >= timeToSpawnEffect){
-            Effect();
-            timeToSpawnEffect = Time.time + 1 / effectSpawnRate;
-        }
 
         //Turn on Gizmos to see Drawn Line
         Debug.DrawLine(firePointPosition, (mousePosition - firePointPosition) * 100, Color.red); //Makes line very long
@@ -69,13 +65,36 @@ public class Weapon : MonoBehaviour{
                 Debug.Log("Hit: " + hit.collider.name + "  with " + dmg + "damage!");
             }
         }
+        
+        if(Time.time >= timeToSpawnEffect){
+            Vector3 hitPos;
+
+            if (hit.collider == null){
+                //If you trail doesn't collide with anything continue on path
+                hitPos = (mousePosition - firePointPosition) * 25;
+            }else{
+                //Hit returns point of impact with raycast
+                hitPos = hit.point;
+            }
+            Effect(hitPos);
+            timeToSpawnEffect = Time.time + 1 / effectSpawnRate;
+        }
     }
 
     //Shooting effect
     //Creates instance of object prefabs with position and rotation
     //Instantiate clones the object and returns a clone - Parameters (Original, position, rotation, parent, instanceiateWorldSpace)
-    void Effect(){
-        Instantiate(BulletTrailPrefab, firePoint.position, firePoint.rotation);
+    void Effect(Vector3 hitPos){
+       Transform trail = Instantiate (BulletTrailPrefab, firePoint.position, firePoint.rotation) as Transform;
+       LineRenderer lr = trail.GetComponent<LineRenderer>();
+
+       if (lr != null ){
+           //Set Positions of trail
+           lr.SetPosition (0, firePoint.position);
+           lr.SetPosition (1, hitPos);
+
+       }
+
        Transform clone = Instantiate(shootEffectPrefab, firePoint.position, firePoint.rotation) as Transform; //(Transform) casts instantiate as a transform object
        clone.parent = firePoint;
 
