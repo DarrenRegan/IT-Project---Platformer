@@ -94,6 +94,8 @@ public class Weapon : MonoBehaviour{
            lr.SetPosition (1, hitPos);
 
        }
+       Destroy(trail.gameObject, 0.03f); //Destroys object after 0.03f
+
 
        Transform clone = Instantiate(shootEffectPrefab, firePoint.position, firePoint.rotation) as Transform; //(Transform) casts instantiate as a transform object
        clone.parent = firePoint;
