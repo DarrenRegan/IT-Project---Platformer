@@ -6,7 +6,7 @@ public class Player : MonoBehaviour {
 
     [System.Serializable]
     public class PlayerStats {
-        public int Health = 100;
+        public int Health = 3;
     }
 
     public PlayerStats playerStats = new PlayerStats();

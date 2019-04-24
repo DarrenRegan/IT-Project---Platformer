@@ -6,7 +6,7 @@ public class Weapon : MonoBehaviour{
 
     //Weapon Variables
     public float fireRate = 0; //Public to edit it - Hold down button to fire and single burst shooting
-    public int dmg = 10; //Damage of shooting
+    public int dmg = 1; //Damage of shooting
     public LayerMask whatToHit; //Tell unity what we want to hit --- List of all layers, can use unity to decide what layers you dont want to hit
 
     //Prefabs
