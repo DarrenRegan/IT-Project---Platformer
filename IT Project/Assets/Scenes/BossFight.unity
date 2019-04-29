@@ -1014,7 +1014,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyStats:
-    maxHealth: 100
+    maxHealth: 1000
   status: {fileID: 0}
 --- !u!114 &765027439
 MonoBehaviour:
@@ -1028,7 +1028,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f48691b0e6a6fd54280273ed9f6a97fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 30
+  health: 300
   healthBar: {fileID: 51484627}
   anim: {fileID: 0}
   isDead: 0
